@@ -1,0 +1,10 @@
+@import "~/styles/mixins";
+
+.container {
+  @include Box();
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1 1;
+}

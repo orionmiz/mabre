@@ -1,0 +1,41 @@
+@import "~/styles/mixins";
+
+.container {
+  @include Box($bg-color: white, $pd: 1rem);
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+
+.total {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.write {
+  display: flex;
+
+  input {
+    flex: 1 1;
+    padding-left: 0.5rem;
+    border: 1px solid lightgray;
+    border-right: 0;
+    outline: none;
+  }
+
+  button {
+    flex: 0 0 auto;
+    padding: 0.5rem 1rem;
+    border: 1px solid lightgray;
+
+    &:hover {
+      filter: brightness(0.7);
+    }
+  }
+}

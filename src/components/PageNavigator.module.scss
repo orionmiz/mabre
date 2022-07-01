@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.pageButtons {
+  display: flex;
+  border-radius: 8px;
+  padding: 2px;
+  gap: 4px;
+}
+.pageButton {
+  min-width: 2rem;
+  padding: 4px;
+  text-align: center;
+  font-size: small;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    background-color: skyblue;
+    color: white;
+  }
+
+  &.active {
+    cursor: default;
+  }
+}

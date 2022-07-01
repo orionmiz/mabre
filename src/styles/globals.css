@@ -1,0 +1,55 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  background: conic-gradient(
+        from 90deg at 4px 4px,
+        #0000 90deg,
+        rgba(255, 255, 255, 0.4) 0
+      )
+      0 0/80px 80px,
+    linear-gradient(90deg, #95c2df, 50%, #f8d3da);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  filter: brightness(70%);
+}
+
+input,
+button {
+  font-family: inherit;
+}
+
+/* EditorJS Dark Theme Compatible */
+@media (prefers-color-scheme: dark) {
+  .ce-toolbar__plus,
+  .ce-toolbar__settings-btn {
+    color: lime;
+  }
+}
+
+.ce-block__content {
+  border-left: 1px solid darkgray;
+  padding-left: 1rem;
+}
+
+.editorjs-readonly .ce-block__content {
+  max-width: 100%;
+  padding-left: 0px;
+  border-left: 0px;
+}

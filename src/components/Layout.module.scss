@@ -1,0 +1,29 @@
+@import "~/styles/variables.module";
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.main {
+  max-width: $page-width-with-margin;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  padding: 32px $page-margin;
+  flex: 1 1;
+  display: flex;
+}
+
+.header {
+  background-color: #166d93;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+}
+
+.footer {
+  background-color: #166d93;
+}

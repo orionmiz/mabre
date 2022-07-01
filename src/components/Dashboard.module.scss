@@ -1,0 +1,30 @@
+@import "~/styles/mixins";
+
+.container {
+  @include Box($bg-color: #166d93);
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  color: white;
+  vertical-align: middle;
+}
+
+.server {
+  flex: 1 1;
+}
+
+.statusOk {
+  color: lime;
+}
+
+.statusLoading {
+  color: orange;
+}
+
+.statusError {
+  color: mistyrose;
+}
+
+.players {
+  color: white;
+}

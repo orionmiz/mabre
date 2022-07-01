@@ -1,0 +1,93 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AccountState {
+  ACTIVE
+  INACTIVE
+}
+
+model User {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  accountState AccountState @default(ACTIVE)
+
+  role Int @default(0)
+  admin Boolean @default(false)
+
+  articles Article[]
+  comments Comment[]
+
+  ms_user_id String @unique // from microsoft's oauth
+  mc_uuid    String @unique // minecraft uuid
+
+  score Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Board {
+  id   String @id @unique
+  desc String @unique
+
+  read    Int @default(0)
+  write   Int @default(0)
+  comment Int @default(0)
+
+  articles Article[]
+}
+
+model Article {
+  id Int @id @default(autoincrement())
+
+  title   String
+  content Json
+
+  board   Board  @relation(fields: [boardId], references: [id], onDelete: Cascade)
+  boardId String
+
+  author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId Int
+
+  images Image[]
+
+  comments Comment[]
+
+  includeImage Boolean @default(false)
+  fixed        Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Comment {
+  id Int @default(autoincrement())
+
+  text String
+
+  author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId Int
+
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  articleId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@id([articleId, id])
+}
+
+model Image {
+  key String @id @unique
+
+  articles Article[]
+}
