@@ -24,7 +24,7 @@ export const getAccessFromCode = async (
   });
 
   if (res.status !== 200) {
-    throw new Error("Failed to get token");
+    throw new Error(JSON.stringify(await res.json()));
   }
 
   const info = await res.json();
