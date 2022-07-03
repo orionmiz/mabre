@@ -4,6 +4,7 @@ import { findUser } from "~/lib/services/user";
 import { setCookie } from "~/lib/util";
 import { getAccessFromCode } from "~/lib/oauth";
 import { UserAuthPayload, UserRegPayload } from "~/lib/auth";
+import { isSecureMode } from "~/lib/constants";
 
 export default async function handler(
   req: NextApiRequest,
@@ -27,7 +28,10 @@ export default async function handler(
   }
 
   // get origin from request
-  const origin = new URL(req.url, `http://${req.headers.host}`).href;
+  const origin = new URL(
+    req.url,
+    `${isSecureMode ? "https" : "http"}://${req.headers.host}`
+  ).href;
 
   // remove 'code' from url
   const redirect_uri = origin.replace(`&code=${code}`, "");
