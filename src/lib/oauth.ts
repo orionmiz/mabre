@@ -24,7 +24,7 @@ export const getAccessFromCode = async (
   });
 
   if (res.status !== 200) {
-    throw new Error("Failed to get token");
+    throw new Error(`Failed to get token, redirect_uri: ${redirect_uri}`);
   }
 
   const info = await res.json();
