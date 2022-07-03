@@ -119,11 +119,10 @@ const checkRegister = async (req: NextRequest) => {
 
   if (user) return returnToHome(req);
 
-  // check code, redirect in query
-  const code = req.nextUrl.searchParams.get("code");
-  const redirect = req.nextUrl.searchParams.get("redirect");
+  // check registration cookie
+  const registration = req.cookies.get("registration") as string;
 
-  if (!code || !redirect) return returnToHome(req);
+  if (!registration) return returnToHome(req);
 
   return NextResponse.next();
 };
