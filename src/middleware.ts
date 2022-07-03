@@ -13,6 +13,7 @@ const PATTERNS = {
 
 const patterns = Object.entries(PATTERNS).map(([page, pathname]) => [
   page,
+  // @ts-ignore
   new URLPattern({ pathname }),
 ]);
 
