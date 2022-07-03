@@ -18,7 +18,9 @@ export default function Member() {
     const params = new URLSearchParams({
       client_id: process.env.NEXT_PUBLIC_MS_CLIENT_ID as string,
       response_type: "code",
-      redirect_uri: `${location.origin}/api/auth?redirect=${location.pathname}${location.search}`,
+      redirect_uri: `${location.origin}/api/auth?redirect=${encodeURIComponent(
+        location.pathname
+      )}${encodeURIComponent(location.search)}`,
       scope: "Xboxlive.signin Xboxlive.offline_access",
     });
 
