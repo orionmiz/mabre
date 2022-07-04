@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn db:generate && next build && yarn db:migrate",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy"
   },
   "dependencies": {
     "@editorjs/editorjs": "^2.24.3",
