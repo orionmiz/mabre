@@ -1,0 +1,26 @@
+@import "~/styles/mixins";
+
+.container {
+  @include Box(white, 2rem);
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1 1;
+}
+
+.rule {
+  height: 30vh;
+  overflow: scroll;
+  
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.next {
+
+  @include Button($pd: 1rem);
+  
+  font-size: large;
+
+}

@@ -1,0 +1,54 @@
+@import "~/styles/variables.module";
+
+.nav {
+  max-width: $page-width-with-margin;
+  height: $footer-height;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 $page-margin;
+
+  color: white;
+}
+
+.copyright {
+  flex: 1 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+}
+
+.copyrightLg {
+  @media (max-width: 699px) {
+    display: none;
+  }
+}
+
+.copyrightSm {
+  @media (min-width: 700px) {
+    display: none;
+  }
+}
+
+.icons {
+  flex: 0 0 auto;
+
+  display: flex;
+  gap: 12px;
+  font-size: 25px;
+
+  margin-right: $item-gap;
+}
+
+.legal {
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  font-size: 14px;
+}

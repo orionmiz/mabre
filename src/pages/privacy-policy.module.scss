@@ -1,0 +1,5 @@
+@import "~/styles/mixins";
+
+.container {
+  @include Box($bg-color: white, $pd: 2rem);
+}

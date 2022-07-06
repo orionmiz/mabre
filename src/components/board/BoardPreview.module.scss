@@ -1,0 +1,15 @@
+@import "~/styles/mixins";
+
+.container {
+  @include Box();
+  flex: 1 1 300px;
+  min-height: 300px;
+}
+
+.boardTitle {
+  padding-bottom: 16px;
+  border-bottom: 1px solid gray;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+}

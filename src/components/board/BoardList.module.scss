@@ -1,0 +1,19 @@
+@import "~/styles/mixins";
+
+.container {
+  @include Box(white, 0);
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.item {
+  // border bottom except last one
+  &:not(:last-child) {
+    border-bottom: 1px solid lightgray;
+  }
+
+  padding: 1rem;
+  font-size: large;
+}

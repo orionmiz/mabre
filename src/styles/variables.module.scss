@@ -1,0 +1,15 @@
+$signature-color: #5f85e8;
+
+$page-width: 1000px;
+$page-width-with-margin: 1048px;
+$page-margin: 24px;
+
+$header-height: 64px;
+$footer-height: 80px;
+$item-gap: 24px;
+
+$boardlist-width: 200px;
+
+:export {
+  headerHeight: $header-height;
+}

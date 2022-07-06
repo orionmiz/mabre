@@ -1,0 +1,15 @@
+{
+  "extends": ["plugin:@typescript-eslint/recommended", "next", "prettier"],
+  
+  "plugins": [
+    "@typescript-eslint",
+    "unused-imports"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "unused-imports/no-unused-imports": "warn",
+    "unused-imports/no-unused-vars": "warn",
+    "no-var": "warn"
+  }
+}

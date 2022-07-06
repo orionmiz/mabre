@@ -1,0 +1,24 @@
+@import "~/styles/variables.module";
+
+$threshold: 563px;
+
+.container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  @media (max-width: $threshold) {
+    flex-direction: column;
+  }
+}
+
+.boardList {
+  flex: 0 0 $boardlist-width;
+  align-self: flex-start;
+
+  @media (max-width: $threshold) {
+    flex: 0 0;
+    align-self: stretch;
+  }
+}
