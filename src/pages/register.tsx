@@ -133,21 +133,21 @@ export default function Auth() {
         ) : (
           <>
             <h2>가입을 위한 필수 요구 조건을 확인합니다.</h2>
-            <ol>
+            <div className={styles.checkBox}>
               {checklist.map(({ desc, errorRange }, i) => (
-                <li key={i}>
-                  {desc}
+                <div key={i} className={styles.checkItem}>
                   <StatusIcon
                     loading={!name && !error}
                     success={name !== undefined || error > errorRange[1]}
                     error={error >= errorRange[0]}
                   />
-                </li>
+                  <span>{desc}</span>
+                </div>
               ))}
-            </ol>
+            </div>
             {name !== undefined && (
               <>
-                <h2>마인크래프트 닉네임: {name}</h2>
+                <h3>마인크래프트 닉네임: {name}</h3>
                 <p>가입이 완료되었습니다.</p>
                 <Link href="/">
                   <a>계속하기</a>

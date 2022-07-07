@@ -11,7 +11,7 @@ export default function StatusIcon({
 }) {
   return (
     loading ? (
-      <Spinner />
+      <Spinner size={"1rem"} />
     ) : success ? (
       <FontAwesomeIcon icon={faCheckCircle} color="lime" />
     ) : error ? (
