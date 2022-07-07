@@ -12,15 +12,25 @@
 .rule {
   height: 30vh;
   overflow: scroll;
-  
+
   padding: 1rem;
   border: 1px solid #ccc;
 }
 
 .next {
-
   @include Button($pd: 1rem);
-  
-  font-size: large;
 
+  font-size: large;
+}
+
+.checkBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

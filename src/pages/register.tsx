@@ -13,8 +13,27 @@ import Layout from "~/components/Layout";
 import PrivacyPolicy from "~/components/rules/PrivacyPolicy";
 import TermsOfService from "~/components/rules/TermsOfService";
 import Spinner from "~/components/util/Spinner";
+import StatusIcon from "~/components/util/StatusIcon";
 import { OAuthError } from "~/lib/oauth";
 import styles from "./register.module.scss";
+
+const checklist: {
+  desc: string;
+  errorRange: [OAuthError, OAuthError];
+}[] = [
+  {
+    desc: "Xbox Live 프로필 보유 (https://xboxlive.com 로그인 후 생성)",
+    errorRange: [OAuthError.ACCESS_FROM_CODE, OAuthError.XSTS],
+  },
+  {
+    desc: "마인크래프트 자바 에디션 게임을 보유",
+    errorRange: [OAuthError.MC_ACCESS, OAuthError.PROFILE],
+  },
+  {
+    desc: "유저 고유 번호 검사",
+    errorRange: [OAuthError.DUPLICATED, OAuthError.DUPLICATED],
+  },
+];
 
 export default function Auth() {
   const router = useRouter();
@@ -114,33 +133,21 @@ export default function Auth() {
         ) : (
           <>
             <h2>가입을 위한 필수 요구 조건을 확인합니다.</h2>
-            <ol>
-              <li>
-                Xbox Live 프로필 보유 (https://xboxlive.com 로그인 후 생성)
-                {!name && !error ? (
-                  <Spinner />
-                ) : name || error > OAuthError.XSTS ? (
-                  <FontAwesomeIcon icon={faCheckCircle} color="lime" />
-                ) : (
-                  <FontAwesomeIcon icon={faXmarkCircle} color="red" />
-                )}
-              </li>
-              <li>
-                마인크래프트 자바 에디션 게임을 보유
-                {!name && !error ? (
-                  <Spinner />
-                ) : name ? (
-                  <FontAwesomeIcon icon={faCheckCircle} color="lime" />
-                ) : error < OAuthError.MC_ACCESS ? (
-                  <FontAwesomeIcon icon={faXmarkCircle} color="red" />
-                ) : (
-                  <FontAwesomeIcon icon={faEllipsis} color="gray" />
-                )}
-              </li>
-            </ol>
-            <h2>마인크래프트 닉네임: {name ?? "Loading..."}</h2>
+            <div className={styles.checkBox}>
+              {checklist.map(({ desc, errorRange }, i) => (
+                <div key={i} className={styles.checkItem}>
+                  <StatusIcon
+                    loading={!name && !error}
+                    success={name !== undefined || error > errorRange[1]}
+                    error={error >= errorRange[0]}
+                  />
+                  <span>{desc}</span>
+                </div>
+              ))}
+            </div>
             {name !== undefined && (
               <>
+                <h3>마인크래프트 닉네임: {name}</h3>
                 <p>가입이 완료되었습니다.</p>
                 <Link href="/">
                   <a>계속하기</a>

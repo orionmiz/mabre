@@ -38,7 +38,7 @@ export default async function handler(
     ms_user_id,
   }).catch(() => {
     res.status(403).json({
-      error: "Failed to create user", // duplicate?
+      error: OAuthError.DUPLICATED, // duplicate?
     });
   });
 
