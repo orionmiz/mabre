@@ -156,7 +156,7 @@ export default async function handler(
     }
   }
 
-  await revalidateArticle(res, boardId, article.id);
+  revalidateArticle(res, boardId, article.id);
 
   return res.json({
     success: true,
