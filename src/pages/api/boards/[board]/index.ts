@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-import { processImages } from "~/lib/article";
+import { processImages, revalidateArticle } from "~/lib/article";
 import { getUser } from "~/lib/auth";
 import { createArticle } from "~/lib/services/article";
 import { findBoard } from "~/lib/services/board";
@@ -91,6 +91,8 @@ export default async function handler(
     });
     return;
   }
+
+  revalidateArticle(res, boardId, article.id);
 
   res.json({
     redirect: `/${boardId}/${article.id}`,
