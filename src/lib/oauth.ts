@@ -8,6 +8,7 @@ export enum OAuthError {
   CHECK_GAME,
   NO_GAME,
   PROFILE,
+  DUPLICATED,
 }
 
 export const getAccessFromCode = async (
