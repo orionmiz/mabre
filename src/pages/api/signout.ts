@@ -16,5 +16,7 @@ export default async function handler(
 
   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-  res.status(200).json({});
+  res.status(200).json({
+    timestamp: Date.now(),
+  });
 }
