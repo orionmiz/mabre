@@ -82,7 +82,7 @@ export default function ArticlePage({
                   </div>
                   <div className={styles.date}>
                     <FontAwesomeIcon icon={faClock} />
-                    {format(parseDate(article.createdAt), "yyyy.M.d hh:mm")}
+                    {format(parseDate(article.createdAt), "yyyy.M.d HH:mm")}
                   </div>
                 </div>
               </div>
