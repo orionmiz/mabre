@@ -69,7 +69,7 @@ export default function Comment({
       </div>
       <div>{text}</div>
       <div className={styles.date}>
-        {format(parseDate(createdAt), "yyyy.M.d hh:mm")}
+        {format(parseDate(createdAt), "yyyy.M.d HH:mm")}
       </div>
     </div>
   );
