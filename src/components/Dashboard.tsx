@@ -1,4 +1,5 @@
 import useGame from "~/hooks/useGame";
+import { host_game } from "~/lib/constants";
 import styles from "./Dashboard.module.scss";
 
 export default function Dashboard() {
@@ -9,7 +10,7 @@ export default function Dashboard() {
   return (
     <div className={styles.container}>
       <div className={styles.server}>
-        <span>마브레 공식서버 (mabre.org</span>
+        <span>마브레 공식서버 ({host_game}</span>
         {game?.version && ` / ${game.version}`}) :{" "}
         <span
           className={

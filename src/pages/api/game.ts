@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { CommonResponse } from "~/lib/api";
-import { host_game } from "~/lib/constants";
+import { host_hub } from "~/lib/constants";
 
 export interface GameResponse extends CommonResponse {
   version: string;
@@ -18,7 +18,7 @@ export default async function handler(
     controller.abort();
   }, 5000);
 
-  const gameResponse: GameResponse = await fetch(`${host_game}/server`, {
+  const gameResponse: GameResponse = await fetch(`${host_hub}/server`, {
     signal: controller.signal,
   })
     .then((res) => {
