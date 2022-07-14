@@ -1,5 +1,9 @@
+@import "~/styles/variables.module";
+
 .container {
   position: relative;
+
+  font-size: $member-size;
 
   user-select: none;
   cursor: pointer;
