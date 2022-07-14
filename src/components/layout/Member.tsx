@@ -6,6 +6,7 @@ import useProfile from "~/hooks/useProfile";
 import Failure from "../util/Failure";
 import Spinner from "../util/Spinner";
 import styles from "./Member.module.scss";
+import styleVariables from "~/styles/variables.module.scss";
 
 export default function Member() {
   const [opened, setOpened] = useState(false);
@@ -46,7 +47,9 @@ export default function Member() {
   if (isLoading || !profile) {
     return (
       <div className={styles.container}>
-        <Spinner />
+        <div className={styles.icon}>
+          <Spinner size={styleVariables.memberSize} />
+        </div>
       </div>
     );
   }
@@ -54,7 +57,9 @@ export default function Member() {
   if (isError) {
     return (
       <div className={styles.container}>
-        <Failure />
+        <div className={styles.icon}>
+          <Failure />
+        </div>
       </div>
     );
   }

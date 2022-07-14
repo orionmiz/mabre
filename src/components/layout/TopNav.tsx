@@ -38,9 +38,7 @@ export default function TopNav() {
             <span className={styles.linkDesc}>공지사항</span>
           </a>
         </Link>
-        <div className={styles.user}>
-          <Member />
-        </div>
+        <Member />
       </div>
     </nav>
   );

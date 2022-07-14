@@ -10,6 +10,10 @@ $item-gap: 24px;
 
 $boardlist-width: 200px;
 
+// Member Icon in TopNav
+$member-size: 18px;
+
 :export {
   headerHeight: $header-height;
+  memberSize: $member-size;
 }
