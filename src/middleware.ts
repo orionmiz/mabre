@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, URLPattern } from "next/server";
 import { getUser, UserAuthPayload } from "./lib/auth";
 import { host } from "./lib/constants";
 import { BoardResponse } from "./pages/api/boards";
@@ -11,11 +11,9 @@ const PATTERNS = {
   article: "/:board/:article",
 };
 
-const patterns = Object.entries(PATTERNS).map(([page, pathname]) => [
-  page,
-  // @ts-ignore
-  new URLPattern({ pathname }),
-]);
+const patterns: [string, InstanceType<typeof URLPattern>][] = Object.entries(
+  PATTERNS
+).map(([page, pathname]) => [page, new URLPattern({ pathname })]);
 
 const params = (url: string) => {
   const input = url.split("?")[0];
@@ -41,7 +39,7 @@ export async function middleware(req: NextRequest) {
   const boards: BoardResponse = await fetch(`${host}/api/boards/`).then((res) =>
     res.json()
   );
-  const { board: boardId, article } = groups;
+  const { board: boardId, article } = groups as Record<string, string>;
 
   if (!(boardId in boards)) return NextResponse.next();
 
