@@ -27,6 +27,16 @@ const nextConfig = {
   eslint: {
     dirs: ["src", "__tests__"],
   },
+  experimental: {
+    swcPlugins: [
+      [
+        'next-superjson-plugin',
+        {
+          excluded: []
+        },
+      ],
+    ],
+  },
 };
 
 module.exports = nextConfig;

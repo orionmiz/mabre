@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./ArticlePreview.module.scss";
 import { formatDistance } from "date-fns";
 import { ko } from "date-fns/locale";
-import { parseDate } from "~/lib/util";
 import Link from "next/link";
 
 export default function ArticlePreviewItem({
@@ -43,7 +42,7 @@ export default function ArticlePreviewItem({
               </div>
             )}
             <div>
-              {formatDistance(parseDate(timestamp), new Date(), {
+              {formatDistance(timestamp, new Date(), {
                 addSuffix: true,
                 locale: ko,
                 includeSeconds: true,
