@@ -1,10 +1,4 @@
-import {
-  faCheckCircle,
-  faChevronRight,
-  faEllipsis,
-  faUserPen,
-  faXmarkCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight, faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,7 +6,6 @@ import { ChangeEventHandler, useState } from "react";
 import Layout from "~/components/Layout";
 import PrivacyPolicy from "~/components/rules/PrivacyPolicy";
 import TermsOfService from "~/components/rules/TermsOfService";
-import Spinner from "~/components/util/Spinner";
 import StatusIcon from "~/components/util/StatusIcon";
 import { OAuthError } from "~/lib/oauth";
 import styles from "./register.module.scss";
