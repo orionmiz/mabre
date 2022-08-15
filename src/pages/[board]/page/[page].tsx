@@ -93,7 +93,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       boardId,
       title: board.desc,
-      articles: JSON.parse(JSON.stringify(articles)),
+      articles,
       page,
       totalPages,
       writable: user && user.role >= board.write,

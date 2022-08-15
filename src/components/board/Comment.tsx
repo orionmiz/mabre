@@ -5,7 +5,6 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Modelize } from "~/lib/types";
 import { findCommentsFromPage } from "~/lib/services/comment";
 import useProfile from "~/hooks/useProfile";
-import { parseDate } from "~/lib/util";
 import { useState } from "react";
 
 type Comment = Modelize<typeof findCommentsFromPage>[number];
@@ -68,9 +67,7 @@ export default function Comment({
         )}
       </div>
       <div>{text}</div>
-      <div className={styles.date}>
-        {format(parseDate(createdAt), "yyyy.M.d HH:mm")}
-      </div>
+      <div className={styles.date}>{format(createdAt, "yyyy.M.d HH:mm")}</div>
     </div>
   );
 }

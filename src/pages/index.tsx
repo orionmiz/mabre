@@ -69,8 +69,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      notices: JSON.parse(JSON.stringify(notices)),
-      frees: JSON.parse(JSON.stringify(frees)),
+      notices,
+      frees,
       userRanking,
     },
   };

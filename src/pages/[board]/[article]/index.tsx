@@ -3,7 +3,6 @@ import { findArticle, findArticles } from "~/lib/services/article";
 import { findBoards } from "~/lib/services/board";
 import Layout from "~/components/Layout";
 import { Modelize } from "~/lib/types";
-import { parseDate } from "~/lib/util";
 import dynamic from "next/dynamic";
 import styles from "./ArticlePage.module.scss";
 import BoardList from "~/components/board/BoardList";
@@ -82,7 +81,7 @@ export default function ArticlePage({
                   </div>
                   <div className={styles.date}>
                     <FontAwesomeIcon icon={faClock} />
-                    {format(parseDate(article.createdAt), "yyyy.M.d HH:mm")}
+                    {format(article.createdAt, "yyyy.M.d HH:mm")}
                   </div>
                 </div>
               </div>
@@ -144,7 +143,7 @@ export const getStaticProps = async ({
   return {
     props: {
       boardId,
-      article: JSON.parse(JSON.stringify(article)),
+      article,
     },
   };
 };
